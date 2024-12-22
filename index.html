@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transit App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .timer {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .date {
+            font-size: 24px;
+            color: gray;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #1664eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .button:active {
+            background-color: #1451b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer" id="timer">00:00:00 AM</div>
+    <div class="date" id="date">Tue, Nov 12</div>
+    <button class="button" onclick="alert('Button Clicked!')">Expire</button>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours() % 12 || 12).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+            document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
+        }
+
+        function updateDate() {
+            const now = new Date();
+            const options = { weekday: 'short', month: 'short', day: 'numeric' };
+            document.getElementById('date').textContent = now.toLocaleDateString('en-US', options);
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+        updateDate();
+    </script>
+</body>
+</html>
