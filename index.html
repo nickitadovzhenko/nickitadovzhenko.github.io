@@ -18,54 +18,54 @@
 
         .container {
             background-color: #a63f65;
-            width: 90%; /* Further increased width */
-            max-width: 500px; /* Further increased max-width */
-            padding: 40px; /* Further increased padding */
-            border-radius: 30px; /* Slightly larger radius */
+            width: 90%;
+            max-width: 500px;
+            /* Explicit height or min-height for taller container */
+            min-height: 800px; /* Adjust as needed */
+            padding: 40px;
+            border-radius: 30px;
             color: white;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Even more pronounced shadow */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             box-sizing: border-box;
             position: relative;
+            display: flex; /* Enable flexbox for internal layout */
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: space-around; /* Distribute space evenly */
         }
 
         .header {
-            font-size: 1.6em; /* Increased font size */
+            font-size: 1.6em;
             text-align: center;
-            margin-bottom: 15px; /* Increased margin */
-            font-weight: 700; /* Even bolder */
+            font-weight: 700;
         }
 
         .date-time-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 20px; /* Increased margin */
         }
 
         .date {
-            font-size: 2em; /* Increased font size */
-            font-weight: 700; /* Even bolder */
-            margin-bottom: 10px; /* Increased margin */
+            font-size: 2em;
+            font-weight: 700;
         }
 
         .time {
-            font-size: 2em; /* Increased font size */
-            font-weight: 700; /* Even bolder */
+            font-size: 2em;
+            font-weight: 700;
         }
 
         .route {
-            font-size: 1.6em; /* Increased font size */
+            font-size: 1.6em;
             text-align: center;
-            margin-bottom: 25px; /* Increased margin */
-            font-weight: 700; /* Even bolder */
+            font-weight: 700;
         }
 
         .bus-video {
             text-align: center;
-            margin-bottom: 25px; /* Increased margin */
             overflow: hidden;
-            border-radius: 20px; /* Slightly larger radius */
-            max-height: 300px; /* Added max height to video */
+            border-radius: 20px;
+            max-height: 300px;
         }
 
         .bus-video video {
@@ -77,20 +77,19 @@
 
         .expire-button {
             display: block;
-            margin: 20px auto;
+            margin: 0 auto; /* Remove default margins for better flexbox control */
             padding: 12px 36px;
             background-color: red;
             color: white;
             border: none;
-            border-radius: 30px; /* Larger radius */
-            font-size: 1.6em; /* Increased font size */
-            font-weight: 700; /* Even bolder */
+            border-radius: 30px;
+            font-size: 1.6em;
+            font-weight: 700;
         }
 
         .expiry-info {
             text-align: center;
-            font-size: 1.3em; /* Increased font size */
-            margin-top: 25px; /* Increased margin */
+            font-size: 1.3em;
         }
     </style>
 </head>
@@ -114,6 +113,7 @@
             User ID 1111606300
         </div>
     </div>
+
 
     <script>
         function updateDateTime() {
