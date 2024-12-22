@@ -13,25 +13,25 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            justify-content: center;
         }
 
         .container {
             background-color: #a63f65;
-            width: 90%;
-            max-width: 375px;
-            padding: 20px;
-            border-radius: 20px;
+            width: 80%; /* Increased width */
+            max-width: 450px; /* Increased max-width */
+            padding: 30px; /* Increased padding */
+            border-radius: 25px; /* Slightly larger radius */
             color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
             box-sizing: border-box;
             position: relative;
         }
 
         .header {
-            font-size: 1.2em;
+            font-size: 1.4em; /* Increased font size */
             text-align: center;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
 
@@ -39,32 +39,32 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .date {
-            font-size: 1.5em;
+            font-size: 1.8em; /* Increased font size */
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .time {
-            font-size: 1.5em;
+            font-size: 1.8em; /* Increased font size */
             font-weight: 600;
         }
 
         .route {
-            font-size: 1.2em;
+            font-size: 1.4em; /* Increased font size */
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: 600;
         }
 
         .bus-video {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 15px; /* Slightly larger radius */
         }
 
         .bus-video video {
@@ -76,47 +76,20 @@
 
         .expire-button {
             display: block;
-            margin: 10px auto;
-            padding: 8px 24px;
+            margin: 15px auto;
+            padding: 10px 30px;
             background-color: red;
             color: white;
             border: none;
-            border-radius: 20px;
-            font-size: 1.2em;
+            border-radius: 25px;
+            font-size: 1.4em; /* Increased font size */
             font-weight: 600;
         }
 
         .expiry-info {
             text-align: center;
-            font-size: 0.9em;
-            margin-top: 15px;
-        }
-
-        .bottom-nav {
-            display: flex;
-            justify-content: space-around;
-            width: 90%;
-            max-width: 375px;
-            margin-top: auto;
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #e9e9eb;
-            border-radius: 10px;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-        }
-
-        .nav-icon {
-            text-align: center;
-            opacity: 0.7;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .nav-icon img {
-            max-width: 30px;
-            margin-bottom: 5px;
+            font-size: 1.1em; /* Increased font size */
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -138,24 +111,6 @@
         <div class="expiry-info">
             This pass expires after 194 minutes<br>
             User ID 1111606300
-        </div>
-    </div>
-    <div class="bottom-nav">
-        <div class="nav-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">
-            <span>Home</span>
-        </div>
-        <div class="nav-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/59/59389.png" alt="Parking">
-            <span>Parking</span>
-        </div>
-        <div class="nav-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/2589/2589689.png" alt="Transit">
-            <span>Transit</span>
-        </div>
-        <div class="nav-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/3068/3068227.png" alt="Permits">
-            <span>Permits</span>
         </div>
     </div>
 
