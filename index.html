@@ -6,132 +6,175 @@
     <title>Transit Pass</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
             margin: 0;
+            background-color: #f2f2f7;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #f0f0f0; /* Light background */
+            min-height: 100vh;
         }
 
         .container {
-            background-color: #bb558b; /* Main pass color */
+            background-color: #a63f65;
             width: 90%;
-            max-width: 400px;
+            max-width: 375px;
             padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
+            border-radius: 20px;
             color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            box-sizing: border-box;
+            position: relative;
         }
 
         .header {
+            font-size: 1.2em;
             text-align: center;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .date-time-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin-bottom: 10px;
         }
 
-        .date-time {
-            font-size: 1.2em;
-            text-align: center;
-            margin-bottom: 20px;
+        .date {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .time {
+            font-size: 1.5em;
+            font-weight: 600;
         }
 
         .route {
+            font-size: 1.2em;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .bus-image {
+        .bus-video {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 10px;
         }
-        .bus-image img{
+
+        .bus-video video {
             max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         .expire-button {
             display: block;
-            margin: 0 auto;
-            padding: 10px 20px;
-            background-color: #d9534f; /* Reddish button */
+            margin: 10px auto;
+            padding: 8px 24px;
+            background-color: red;
             color: white;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            border-radius: 20px;
+            font-size: 1.2em;
+            font-weight: 600;
         }
 
         .expiry-info {
             text-align: center;
-            margin-top: 20px;
             font-size: 0.9em;
+            margin-top: 15px;
         }
+
         .bottom-nav {
             display: flex;
             justify-content: space-around;
             width: 90%;
-            max-width: 400px;
-            margin-top: 20px;
+            max-width: 375px;
+            margin-top: auto;
+            margin-bottom: 20px;
             padding: 10px;
-            background-color: white;
+            background-color: #e9e9eb;
             border-radius: 10px;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
 
         .nav-icon {
             text-align: center;
-            opacity: 0.7; /* Slightly faded icons */
+            opacity: 0.7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .nav-icon img{
+
+        .nav-icon img {
             max-width: 30px;
-        }
-        #clock{
-            font-size: 1.2em;
-            position: absolute;
-            top: 10px;
-            left: 10px;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
-    <div id="clock"></div>
     <div class="container">
-        <div class="header">
-            <h2>900: Single Use</h2>
+        <div class="header">900: Single Use</div>
+        <div class="date-time-container">
+            <div class="date" id="date"></div>
+            <div class="time" id="time"></div>
         </div>
-        <div class="date-time" id="datetime"></div>
-        <div class="route">
-            <h3>Route 1</h3>
-        </div>
-        <div class="bus-image">
-            <img src="image/busPlaceholder.png" alt="Bus Image">
+        <div class="route">Route 1</div>
+        <div class="bus-video">
+            <video autoplay muted loop playsinline>
+                <source src="image/transit.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         <button class="expire-button">Expire</button>
         <div class="expiry-info">
-            <p>This pass expires after 194 minutes</p>
-            <p>User ID 1111606300</p>
+            This pass expires after 194 minutes<br>
+            User ID 1111606300
         </div>
     </div>
-        <div class="bottom-nav">
-        <div class="nav-icon"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="home"></div>
-        <div class="nav-icon"><img src="https://cdn-icons-png.flaticon.com/512/59/59389.png" alt="parking"></div>
-        <div class="nav-icon"><img src="https://cdn-icons-png.flaticon.com/512/2589/2589689.png" alt="transit"></div>
-        <div class="nav-icon"><img src="https://cdn-icons-png.flaticon.com/512/3068/3068227.png" alt="permit"></div>
+    <div class="bottom-nav">
+        <div class="nav-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">
+            <span>Home</span>
+        </div>
+        <div class="nav-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/59/59389.png" alt="Parking">
+            <span>Parking</span>
+        </div>
+        <div class="nav-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/2589/2589689.png" alt="Transit">
+            <span>Transit</span>
+        </div>
+        <div class="nav-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3068/3068227.png" alt="Permits">
+            <span>Permits</span>
+        </div>
     </div>
+
     <script>
         function updateDateTime() {
             const now = new Date();
-            const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
-            const dateTimeString = now.toLocaleDateString('en-US', options);
-            document.getElementById('datetime').textContent = dateTimeString;
+            const dateOptions = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+            let dateString = now.toLocaleDateString('en-US', dateOptions);
+            dateString = dateString.replace(/,/g, '');
 
             const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
             const timeString = now.toLocaleTimeString('en-US', timeOptions);
-            document.getElementById('clock').textContent = timeString;
 
+            document.getElementById('date').textContent = dateString;
+            document.getElementById('time').textContent = timeString;
         }
 
-        setInterval(updateDateTime, 1000); // Update every second
-        updateDateTime(); // Initial update
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
     </script>
 </body>
 </html>
