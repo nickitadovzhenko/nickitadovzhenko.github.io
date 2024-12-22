@@ -5,64 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transit App</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
+        /* General Reset */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
             height: 100vh;
         }
-        .timer {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .date {
-            font-size: 24px;
-            color: gray;
-            margin-bottom: 20px;
-        }
-        .button {
+
+        /* Header */
+        header {
+            background-color: #f8f9fa;
             padding: 10px 20px;
-            background-color: #1664eb;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        .button:active {
-            background-color: #1451b3;
+
+        header h1 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .location {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .location p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .schedule {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .schedule-item .route {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .schedule-item .time {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Footer Navigation */
+        footer {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        footer button {
+            background: none;
+            border: none;
+            color: #007bff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        footer button:focus {
+            outline: none;
+            color: #0056b3;
+        }
+
+        footer button.active {
+            color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="timer" id="timer">00:00:00 AM</div>
-    <div class="date" id="date">Tue, Nov 12</div>
-    <button class="button" onclick="alert('Button Clicked!')">Expire</button>
-
-    <script>
-        function updateTime() {
-            const now = new Date();
-            const hours = String(now.getHours() % 12 || 12).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const ampm = now.getHours() >= 12 ? 'PM' : 'AM';
-            document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
-        }
-
-        function updateDate() {
-            const now = new Date();
-            const options = { weekday: 'short', month: 'short', day: 'numeric' };
-            document.getElementById('date').textContent = now.toLocaleDateString('en-US', options);
-        }
-
-        setInterval(updateTime, 1000);
-        updateTime();
-        updateDate();
-    </script>
+    <header>
+        <h1>Transit App</h1>
+    </header>
+    <main>
+        <div class="location">
+            <p>Current Location: Downtown</p>
+        </div>
+        <div class="schedule">
+            <div class="schedule-item">
+                <div class="route">Route 1: Central Station</div>
+                <div class="time">5 min</div>
+            </div>
+            <div class="schedule-item">
+                <div class="route">Route 2: Uptown</div>
+                <div class="time">10 min</div>
+            </div>
+            <div class="schedule-item">
+                <div class="route">Route 3: City Park</div>
+                <div class="time">15 min</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <button class="active">Home</button>
+        <button>Routes</button>
+        <button>Settings</button>
+    </footer>
 </body>
 </html>
