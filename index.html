@@ -5,139 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transit Pass</title>
     <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
         body {
+            font-family: sans-serif;
+            margin: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            min-height: 100vh;
-            background-color: #f5f5f5;
+            align-items: center;
+            background-color: #f0f0f0; /* Light background */
         }
 
-        /* Pass Card Styling */
-        .pass-card {
-            background-color: #a63f65;
-            color: white;
-            margin: 20px;
+        .container {
+            background-color: #bb558b; /* Main pass color */
+            width: 90%;
+            max-width: 400px;
             padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-top: 20px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
-        .pass-card h1,
-        .pass-card h2,
-        .pass-card p {
+        .header {
+            text-align: center;
             margin-bottom: 10px;
         }
 
-        .pass-card img {
-            width: 100%;
-            max-height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 20px 0;
+        .date-time {
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        .pass-card button {
+        .route {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .bus-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .bus-image img{
+            max-width: 100%;
+        }
+
+        .expire-button {
+            display: block;
+            margin: 0 auto;
             padding: 10px 20px;
-            background-color: #e63946;
+            background-color: #d9534f; /* Reddish button */
             color: white;
             border: none;
-            border-radius: 20px;
-            font-size: 16px;
+            border-radius: 5px;
             cursor: pointer;
-            margin-bottom: 15px;
         }
 
-        .pass-card button:hover {
-            background-color: #d62839;
+        .expiry-info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
         }
-
-        /* Navigation Bar */
-        .navbar {
+        .bottom-nav {
             display: flex;
             justify-content: space-around;
-            padding: 15px 0;
-            background-color: #eaeaea;
-            border-top: 1px solid #ccc;
+            width: 90%;
+            max-width: 400px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .navbar a {
+        .nav-icon {
             text-align: center;
-            text-decoration: none;
-            color: #555;
+            opacity: 0.7; /* Slightly faded icons */
         }
-
-        .navbar a.active {
-            color: #007bff;
+        .nav-icon img{
+            max-width: 30px;
         }
-
-        .navbar a i {
-            display: block;
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .navbar a span {
-            font-size: 12px;
+        #clock{
+            font-size: 1.2em;
+            position: absolute;
+            top: 10px;
+            left: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Transit Pass Card -->
-    <div class="pass-card">
-        <h1>900: Single Use</h1>
-        <h2 id="current-date"></h2>
-        <h2 id="current-time"></h2>
-        <h3>Route 1</h3>
-        <img src="image/busPlaceholder.png" alt="Bus Placeholder">
-        <button>Expire</button>
-        <p>This pass expires after 194 minutes</p>
-        <p>User ID: 1111606300</p>
+    <div id="clock"></div>
+    <div class="container">
+        <div class="header">
+            <h2>900: Single Use</h2>
+        </div>
+        <div class="date-time" id="datetime"></div>
+        <div class="route">
+            <h3>Route 1</h3>
+        </div>
+        <div class="bus-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/MBTA_bus_4022.JPG/1280px-MBTA_bus_4022.JPG" alt="Bus Image">
+        </div>
+        <button class="expire-button">Expire</button>
+        <div class="expiry-info">
+            <p>This pass expires after 194 minutes</p>
+            <p>User ID 1111606300</p>
+        </div>
     </div>
-
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="#" class="active">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="#">
-            <i class="fas fa-parking"></i>
-            <span>Parking</span>
-        </a>
-        <a href="#">
-            <i class="fas fa-bus"></i>
-            <span>Transit</span>
-        </a>
-        <a href="#">
-            <i class="fas fa-id-card"></i>
-            <span>Permits</span>
-        </a>
+        <div class="bottom-nav">
+        <div class="nav-icon"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="home"></div>
+        <div class="nav-icon"><img src="https://cdn-icons-png.flaticon.com/512/59/59389.png" alt="parking"></div>
+        <div class="nav-icon"><img src="https://cdn-icons-png.flaticon.com/512/2589/2589689.png" alt="transit"></div>
+        <div class="nav-icon"><img src="https://cdn-icons-png.flaticon.com/512/3068/3068227.png" alt="permit"></div>
     </div>
-
-    <!-- JavaScript for Dynamic Time Updates -->
     <script>
-        function updateTime() {
+        function updateDateTime() {
             const now = new Date();
-            const dateOptions = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
-            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+            const dateTimeString = now.toLocaleDateString('en-US', options);
+            document.getElementById('datetime').textContent = dateTimeString;
 
-            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', dateOptions);
-            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US', timeOptions);
+            const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+            const timeString = now.toLocaleTimeString('en-US', timeOptions);
+            document.getElementById('clock').textContent = timeString;
+
         }
 
-        // Update time every second
-        setInterval(updateTime, 1000);
-        updateTime();
+        setInterval(updateDateTime, 1000); // Update every second
+        updateDateTime(); // Initial update
     </script>
 </body>
 </html>
